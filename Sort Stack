@@ -1,0 +1,33 @@
+import java.util.*;
+class Main { 
+  public static Stack<Integer> sorting(Stack<Integer> s)
+  {
+    Stack<Integer> temp=new Stack<Integer>(); 
+    while(!s.isEmpty())
+    {  
+      int a=s.pop();
+      while(!temp.isEmpty() && temp.peek()<a)
+      {
+         s.push(temp.pop());
+      } 
+      temp.push(a);
+    } 
+    return temp;
+  } 
+  public static void main(String[] args) {
+    Stack<Integer> s=new Stack<Integer>(); 
+    Scanner sc=new Scanner(System.in);
+    System.out.println("No. of elements");
+    int data=sc.nextInt();  
+    System.out.println("Enter data to be inserted");
+    for(int i=0;i<data;i++)
+    {
+      s.push(sc.nextInt());
+    } 
+    Stack<Integer> result=sorting(s); 
+    while(!result.isEmpty()) 
+    {
+      System.out.println(result.pop());
+    }
+  }
+}
